@@ -37,7 +37,7 @@ const Home = () => {
               Expense planning and tracking for agile individuals/teams
             </p>
             <div>
-            <Link to="/expense">  <button>Begin Now</button></Link><span>To see a preview</span>
+            <Link to="expense"><button>Begin Now</button></Link><span>To see a preview</span>
             </div>
           </div>
 
