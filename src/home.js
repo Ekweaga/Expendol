@@ -24,7 +24,7 @@ const Home = () => {
               Login
             </li>
           </ul>
-        </div>
+        </div><br/><br/>
         <div className='content'>
           <div className='content1'>
 
