@@ -4,26 +4,14 @@ import { Link } from 'react-router-dom';
 import logo from './icon-close.svg';
 import logo1 from './illustration-devices.svg';
 import logo2 from './icon-hamburger.svg';
+import Navbar from './navbar';
 
 
 const Home = () => {
     return (
         <><div className='top'>
         <div className='header'>
-          <ul>
-            <li>
-              Start
-            </li>
-            <li>
-              Blog
-            </li>
-            <li>
-              Contact
-            </li>
-            <li>
-              Login
-            </li>
-          </ul>
+        <Navbar/>
         </div><br/><br/>
         <div className='content'>
           <div className='content1'>

@@ -7,6 +7,8 @@ import { Route, Switch, Link,BrowserRouter } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 import { useState } from 'react';
+import Login from './login';
+import Register from './register';
 
 
 function App() {
@@ -33,6 +35,13 @@ function App() {
           <Route path="/expense" exact>
              <Expense />
           </Route>
+          
+          <Route path="/login" exact>
+             <Login />
+          </Route>
+          <Route path="/register" exact>
+             <Register />
+          </Route>
         </Switch>
        
       
@@ -40,7 +49,7 @@ function App() {
   
   
    </BrowserRouter>
-   {<div className='footer'><footer><span>@Expendol | 2022</span></footer></div>}
+   {/*<div className='footer'><footer><span>@Expendol | 2022</span></footer></div>*/}
     </div> 
 
   

@@ -9,10 +9,10 @@ const Login = () => {
            <h1>LOGIN</h1>
            <div className="inputcontainer">
       <div> <label>Email</label><br />
-     <input type="email" onChange={handlechange} name="email" value={email}></input></div>
+     <input type="email"  name="email" ></input></div>
      <div><label className="pwd">Password</label><br />
-     <input type="password" name="password" value={password} onChange={handlechange}></input></div><br />
-     <button>{loading ? "Logging....":"Login"}</button>
+     <input type="password" name="password" ></input></div><br />
+     <button>Login</button>
      </div>
      </form>
    </section>
