@@ -26,23 +26,22 @@ const Navbar = () => {
     window.addEventListener('resize',changewidth)
   },[])
   return (
-    <><nav>{(toggle || screenwidth > 500) && (<ul>
-            <li style={{color:'white',textDecoration:'none'}}>
-            <Link to="register" style={{color:'black',textDecoration:'none'}}>Start</Link> 
-            </li>
-            <li style={{color:'black',textDecoration:'none'}}>
-              Blog
-            </li>
-            <li style={{color:'black',textDecoration:'none'}}>
-              Contact
-            </li>
-            <li>
-             <Link to="login" style={{color:'black',textDecoration:'none'}}>Login</Link> 
-            </li>
-         
-          </ul>)}
-        {close &&(<button className='ham' onClick={tooglenav}><img src={logo3} style={{width:'20px',height:'20px',cursor:'pointer'}}/></button>)}  
-        {open &&(<button className='close' onClick={toogleclose}> <img src={logo4} style={{width:'20px',height:'20px',cursor:'pointer'}}/></button>)} 
+    <><nav className=" p-4 shadow h-[50px]">
+      <div className="flex items-center justify-between mx-4 pb-4">
+        <div >
+          <h3>EXPENDOL</h3>
+        </div>
+
+        <div>
+          <ul className="flex items-center justify-between gap-[10px]">
+            <li>Home</li>
+            <li>Dashboard</li>
+            <li>Features</li>
+            <li><button style={{background:'crimson',padding:'4px',color:'white'}}>Sign Up</button></li>
+          </ul>
+        </div>
+      </div>
+      
           </nav>
          </>
   )

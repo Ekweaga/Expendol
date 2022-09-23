@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import  Balance from './balance';
 import Summary from './summary';
 import Transactionlist from './transactionlist';
-import {  push, ref, set, onValue} from "firebase/database";
-import {database} from './firebase';
+
+
 
 const Expense = () => {
     let id = 0;
@@ -21,25 +21,7 @@ const Expense = () => {
 
 
     }
-   // const addfirebase = ( desc,amount,type)=> {
-     //   id = id + 1
-      //  const db = database;
-      //  push(ref(db, 'Transactions/' + id), {
-        //  Description: desc,
-         //  price: amount,
-         // type:type
-         
-      //  } 
-      //  )
-      //  ;
-   // const starCountRef = ref(db, 'Transactions/' + id);
-  // onValue(starCountRef, (snapshot) => {
-  //const data = snapshot.val();
- 
- 
-//});
-       // ;
-     // }
+  
     const dew = ()=>{
         let expenses = 0;
          

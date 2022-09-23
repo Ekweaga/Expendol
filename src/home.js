@@ -9,32 +9,36 @@ import Navbar from './navbar';
 
 const Home = () => {
     return (
-        <><div className='top'>
-        <div className='header'>
-        <Navbar/>
-        </div><br/><br/>
-        <div className='content'>
-          <div className='content1'>
-
-            <div><span className='ex'>EX</span> <span>Expendol</span></div>
-
-            <h1>
-              POWERFUL INSIGHTS INTO YOUR EXPENSE
-            </h1>
-            <p>
-              Expense planning and tracking for agile individuals/teams
-            </p>
-            <div>
-            <Link to="expense"><button>Begin Now</button></Link><span>To see a preview</span>
+        <>
+        <div className=" mt-[100px] ml-[100px]"><h1 className="font-bold text-5xl" style={{color:'crimson'}}>EXPENDOL</h1></div>
+        <div className="flex items-center justify-around">
+            <div className='ml-5'>
+                <h2 className="font-bold text-6xl mb-4">Track your expenses</h2>
+                <p className="text-1xl">Use  expendol tracker to help you manage your money.</p>
+                <div>
+                <button style={{background:'crimson',padding:'4px',color:'white',width:'200px'}} className="shadow mt-[50px] rounded p-3 h-[50px]">Sign Up</button>
+                </div>
             </div>
-          </div>
-
-          <div className='illusion'>
-            <img src={logo1} />
-          </div>
-
+            <div>
+                <img src={logo1} className="w-[800px]"/>
+            </div>
         </div>
-      </div>
+        <div></div>
+
+
+
+
+
+
+        <div style={{background:'crimson'}} className=" text-white flex items-center mt-[100px]">
+            <div className="w-[500px] m-[100px]">
+                <h1 className="text-4xl font-bold">Expendol, a better tool to
+            manage your finances</h1>
+            <div>
+            <button style={{background:'white',padding:'4px',color:'crimson',width:'200px'}} className="shadow mt-[50px] rounded p-3 h-[50px]">Sign Up</button>
+            </div>
+            </div>
+        </div>
     </>
       )
 }

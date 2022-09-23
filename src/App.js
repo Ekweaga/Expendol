@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import Login from './login';
 import Register from './register';
+import Navbar from './navbar';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   
   return (
     <><div className="App">
+      <Navbar/>
       <BrowserRouter>
       
            
@@ -29,19 +31,10 @@ function App() {
        
      
         <Switch>
-        <Route path="/" exact>
-             <Home />
+          <Route path="/" exact>
+            <Home/>
           </Route>
-          <Route path="/expense" exact>
-             <Expense />
-          </Route>
-          
-          <Route path="/login" exact>
-             <Login />
-          </Route>
-          <Route path="/register" exact>
-             <Register />
-          </Route>
+       
         </Switch>
        
       
