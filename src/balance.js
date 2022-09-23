@@ -18,7 +18,7 @@ const Balance = ({addtransactions,income,expense,addfirebase}) => {
                 <button style={{backgroundColor:'brown',border:'none',padding:'10px 20px', marginLeft:'30px',color:'white'}} onClick={()=>setVisible(!isinputvisible)}>{isinputvisible?"CANCEL":"ADD"}</button>
             </div>
            
-          { isinputvisible && <Addtrans addview = {display} addtransactions={addtransactions} addfirebase={addfirebase}/>} 
+          { isinputvisible && <Addtrans addview = {display} addtransactions={addtransactions} />} 
            
         </div>
        
@@ -27,17 +27,17 @@ const Balance = ({addtransactions,income,expense,addfirebase}) => {
     )
 }
 
-const Addtrans = ({addtransactions,addview,addfirebase})=>{
+const Addtrans = ({addtransactions,addview})=>{
 
     const [desc, settext] = useState('');
     const [ num, setnum] = useState('')
     const [type,settype] = useState('EXPENSE')
     const addtransaction = ()=>{
         
-        addtransactions({desc,num:Number(num),id:Date.now(),type})
+        addtransactions({desc,num:Number(num),id:new Date().toDateString(),type})
         console.log({desc,num,type,id:Date.now()})
         addview();
-       // addfirebase( desc,num,type);
+  
     
     }
     return(

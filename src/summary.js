@@ -2,16 +2,18 @@ import React from 'react'
 
 const Summary = ({income,expense}) => {
     return (
-        <div className='summary' style={{display:'flex',justifyContent:'space-evenly' ,Width:'600px',alignItems:'center'}} >
-        <div style={{width:'200px' , height:'50px',boxShadow:'2px 2px 2px 2px rgba(0,0,0,0.2)',padding:'30px'}}>
-          <span style={{textAlign:'center',fontSize:'20px',marginLeft:'40px'}}>Expense</span> <br/>
-          <span style={{textAlign:'center',fontSize:'25px',marginLeft:'40px',color:'red'}}>${expense}</span>
-        </div>
-        <div style={{width:'200px' , height:'50px',boxShadow:'2px 2px 2px 2px rgba(0,0,0,0.2)', padding:'30px'}}>
-        <span style={{textAlign:'center',fontSize:'20px',marginLeft:'40px'}}> Income</span><br/>
-          <span style={{textAlign:'center',fontSize:'25px',marginLeft:'40px',color:'green'}}>${income}</span>
-        </div>
-    </div>
+     <>
+     <div className="flex items-center justify-center md:gap-3 px-4">
+      <div className=" shadow p-10">
+        <h2 className="font-bold text-3xl">Expense</h2>
+        <h4 className='mt-4'>#{expense}</h4>
+      </div>
+      <div className=" shadow p-10">
+      <h2 className="font-bold text-3xl">Income</h2>
+        <h4 className='mt-4'>#{expense}</h4>
+      </div>
+     </div>
+     </>
     )
 }
 

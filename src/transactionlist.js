@@ -2,13 +2,13 @@ import React, { useState,useEffect } from 'react'
 
 const Transactionlist = ({transactions}) => {
 
-    const [filteredtransactions, updatetransactions] = useState(transactions);
+    const [filteredtransactions, updatetransactions] = useState([]);
     const [text, searchtext] = useState("");
 
     const filterdata = (texts) =>{
         if(!texts || !texts.trim().length) {
-            updatetransactions(transactions);
-           // alert("god")
+         
+           alert("Filter")
             return;
         }
 else{
@@ -22,40 +22,44 @@ else{
       
 
     }
-    useEffect(()=>{
-        filterdata(text)
-    },[transactions])
+   
 
     
     return (
         <div style={{display:'flex',flexDirection:'column', alignItems:'center',width:'100%'}}>
-            <div>
-                <input type="text" placeholder="Search a transaction"  style={{width:'100%',backgroundColor:'#e6e8e9',border:'none',padding:'10px 25px',borderRadius:'10px'}} 
+            <div className="mb-[30px] mt-[30px]">
+                <input type="text" placeholder="Search a transaction"  className="md:w-[500px] w-[300px]" 
                 value={text} onChange={(e)=>{searchtext(e.target.value);
-                /*filterdata(e.target.value)*/}}/>
+                }}/>
+                <button onClick={()=>filterdata(text)}>search</button>
             </div>
               <>
               {
-                 filteredtransactions?.length ?
+                 transactions?.length ?
                   
                   <table style={{width:'100%'}}>
                   <thead style={{width:'100%'}}>
                       <tr>
                           <th>Expense</th>
                           <th>Amount</th>
+                        <th>Date</th>
                       </tr>
                   </thead>
                   <tbody >
-                  {filteredtransactions.map(
+                  {transactions.map(
           (transaction) =>{
                           return (
-                              <tr style={{ border: '1px solid black' }}>
+                              <tr style={{  }}>
                                   <td style={{ textAlign: 'center' }}>
                                       {transaction.desc.toLowerCase()}
                                   </td>
                                   <td style={{ textAlign: 'center' }}>
                                       #{transaction.num}
                                   </td>
+                                  <td style={{ textAlign: 'center' }}>
+                                      {transaction.id}
+                                  </td>
+
                               </tr>
                           );
                       }

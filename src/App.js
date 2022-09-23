@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Login from './login';
 import Register from './register';
 import Navbar from './navbar';
+import Footer from './Footer';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   return (
     <><div className="App">
       <Navbar/>
-      <BrowserRouter>
+    
       
            
             
@@ -34,6 +35,16 @@ function App() {
           <Route path="/" exact>
             <Home/>
           </Route>
+          <Route path="/login" exact>
+            <Login/>
+          </Route>
+          <Route path="/signup" exact>
+            <Register/>
+          </Route>
+          <Route path="/expense" exact>
+            <Expense/>
+          </Route>
+         
        
         </Switch>
        
@@ -41,7 +52,8 @@ function App() {
      
   
   
-   </BrowserRouter>
+  
+   <Footer/>
    {/*<div className='footer'><footer><span>@Expendol | 2022</span></footer></div>*/}
     </div> 
 
