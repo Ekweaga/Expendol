@@ -6,15 +6,17 @@ import Home from './home'
 import { Route, Switch, Link,BrowserRouter } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Login from './login';
 import Register from './register';
 import Navbar from './navbar';
 import Footer from './Footer';
+import { Auth } from './Context';
 
 
 function App() {
   const [show ,setshow] = useState(true);
+  const {user} = useContext(Auth)
   const visible = ()=>{
     setshow(false)
   }

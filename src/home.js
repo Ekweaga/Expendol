@@ -52,9 +52,9 @@ const Home = () => {
                 <p>Expendol smart features help you to manage your country</p>
             </div>
 
-            <div>
+            <div className="">
                 {features.map((item)=>{
-                    return <div className="mb-[40px]">
+                    return <div className="mb-[40px] flex flex-col  justify-center">
                         <h2 className="font-bold mb-3">{item.point}</h2>
                         <div className='flex items-center justify-center gap-4'><RiMoneyDollarCircleFill style={{color:'crimson',fontSize:'25px'}}/> <p>{item.desc}</p></div>
                     </div>

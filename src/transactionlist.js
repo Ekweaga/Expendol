@@ -1,37 +1,24 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
+import { Auth } from './Context';
+import {AiOutlineSearch} from "react-icons/ai"
 
-const Transactionlist = ({transactions}) => {
+const Transactionlist = () => {
+    const {transactions,filterdata} = useContext(Auth)
 
-    const [filteredtransactions, updatetransactions] = useState([]);
-    const [text, searchtext] = useState("");
+    const [text,searchtext] = useState('')
 
-    const filterdata = (texts) =>{
-        if(!texts || !texts.trim().length) {
-         
-           alert("Filter")
-            return;
-        }
-else{
-    const txn = [...transactions]  ; 
-    txn = txn.filter((item)=>{
-       item.desc.toLowerCase().includes(texts.toLowerCase().trim())
-    });
-
-    updatetransactions(txn);
-}
-      
-
-    }
    
 
+  
     
     return (
         <div style={{display:'flex',flexDirection:'column', alignItems:'center',width:'100%'}}>
-            <div className="mb-[30px] mt-[30px]">
-                <input type="text" placeholder="Search a transaction"  className="md:w-[500px] w-[300px]" 
+            <div className="mb-[30px] mt-[30px] flex flex-row-reverse items-center justify-center shadow rounded px-4">
+                <AiOutlineSearch onClick={()=>filterdata(text)} className="h-[20px] cursor-pointer" style={{width:'40px'}}/>
+                <input type="text" placeholder="Search a transaction"  className="md:w-[500px] w-[300px] border border-none" 
                 value={text} onChange={(e)=>{searchtext(e.target.value);
                 }}/>
-                <button onClick={()=>filterdata(text)}>search</button>
+              
             </div>
               <>
               {
@@ -57,7 +44,7 @@ else{
                                       #{transaction.num}
                                   </td>
                                   <td style={{ textAlign: 'center' }}>
-                                      {transaction.id}
+                                      {transaction.date}
                                   </td>
 
                               </tr>

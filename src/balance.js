@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Auth } from './Context'
 
 
-const Balance = ({addtransactions,income,expense,addfirebase}) => {
+const Balance = ({}) => {
+
+    const {addTransactions,income,expenses} = useContext(Auth);
     const [isinputvisible, setVisible] =useState(false)
 
     const display = ()=>{
@@ -14,11 +17,11 @@ const Balance = ({addtransactions,income,expense,addfirebase}) => {
     return (
        <> <div className='balance' style={{display:'flex',justifyContent:'space-around',flexDirection:'column',alignItems:'center',gap:'20px', Width:'100%'}} >
             <div style={{display:'flex', justifyContent:'space-between'}}>
-                <span style={{fontWeight:'800',fontSize:'20px'}}>Balance:${income - expense}</span>
+                <span style={{fontWeight:'800',fontSize:'20px'}}>Balance:${income - expenses}</span>
                 <button style={{backgroundColor:'brown',border:'none',padding:'10px 20px', marginLeft:'30px',color:'white'}} onClick={()=>setVisible(!isinputvisible)}>{isinputvisible?"CANCEL":"ADD"}</button>
             </div>
            
-          { isinputvisible && <Addtrans addview = {display} addtransactions={addtransactions} />} 
+          { isinputvisible && <Addtrans addview = {display} addTransactions={addTransactions} />} 
            
         </div>
        
@@ -27,14 +30,14 @@ const Balance = ({addtransactions,income,expense,addfirebase}) => {
     )
 }
 
-const Addtrans = ({addtransactions,addview})=>{
+const Addtrans = ({addview,addTransactions})=>{
 
     const [desc, settext] = useState('');
     const [ num, setnum] = useState('')
     const [type,settype] = useState('EXPENSE')
     const addtransaction = ()=>{
         
-        addtransactions({desc,num:Number(num),id:new Date().toDateString(),type})
+        addTransactions({desc,num:Number(num),date:new Date().toDateString(),type,id:Math.floor(Math.random() * 10)})
         console.log({desc,num,type,id:Date.now()})
         addview();
   

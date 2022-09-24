@@ -21,37 +21,7 @@ const Expense = () => {
 
     }
   
-    const dew = ()=>{
-        let expenses = 0;
-         
-        transactions.map((item)=>{
-           
-            item.type === "EXPENSE" ? expenses = expenses + 1 : expenses = 0;
-      
-
-    });
-    updateexps(expenses)
-    }
-    const cal = ()=>{
-        let inc = 0;
-        let exp = 0;
-       
-        transactions.map((item)=>{
-           
-                item.type === "EXPENSE" ? exp = exp + item.num : inc = inc + item.num 
-          
-
-        })
-        updateexp(exp);
-        updateinc(inc)
-      
-
-    }
-
-   useEffect(()=>{
-        cal();
-        dew();
-   },[transactions])
+    
 
     return (
         <>

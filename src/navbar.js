@@ -1,15 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { Link,useHistory } from 'react-router-dom';
 
 import './nabar.css';
 import closeimg from './icon-close.svg';
 import openimg from './icon-hamburger.svg'
 import { useState,useEffect } from 'react';
+import { Auth } from './Context';
+import { onAuthStateChanged,signOut } from 'firebase/auth';
+import { auth } from './firebase';
 const Navbar = () => {
+  const {user} = useContext(Auth)
   const [toggle,settoogle] = useState(false);
   const [close,setclose] = useState(true);
   const [open,setopen] = useState(false);
-  const [screenwidth, setscreenwidth] = useState(window.innerWidth)
+ const history = useHistory()
+
+  const logout = async ()=>{
+    await signOut(auth)
+    history.replace("/login");
+    localStorage.clear();
+}
   const tooglenav=()=>{
     settoogle(true)
     setclose(false)
@@ -20,12 +30,7 @@ const Navbar = () => {
     setclose(true)
     setopen(false)
   }
-  useEffect(()=>{
-    const changewidth = ()=>{
-      setscreenwidth(window.innerWidth)
-    }
-    window.addEventListener('resize',changewidth)
-  },[])
+ 
   return (
     <><nav className=" p-[30px]  h-[50px] mb-[50px] relative  ">
       <div className="flex items-center justify-between mx-4 ">
@@ -38,7 +43,8 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="expense">Dashboard</Link></li>
             <li><a href='#features'>Features</a></li>
-            <li><button style={{background:'crimson',padding:'4px',color:'white'}} className="shadow w-[150px] rounded"><Link to="signup">{true ?<span>Logout</span>:<span>SignUp</span>}</Link></button></li>
+            <li><button style={{background:'crimson',padding:'4px',color:'white'}} className="shadow w-[150px] rounded" >
+              {user ? <Link to="login" onClick={logout}>Logout</Link>:<Link to="signup">Sign Up</Link>}</button></li>
           </ul>
         </div>
         <div className='menubar md:hidden block'>
@@ -52,7 +58,8 @@ const Navbar = () => {
             <li className="mb-10" onClick={toogleclose}><Link to="/">Home</Link></li>
             <li className="mb-10" onClick={toogleclose}><Link to="expense">Dashboard</Link></li>
             <li className="mb-10" onClick={toogleclose}><a href='#features'>Features</a></li>
-            <li onClick={toogleclose}><button style={{background:'crimson',padding:'4px',color:'white'}} className="shadow w-[150px] rounded"><Link to="signup">{true ?<span>Logout</span>:<span>SignUp</span>}</Link></button></li>
+            <li onClick={toogleclose}><button style={{background:'crimson',padding:'4px',color:'white'}} className="shadow w-[150px] rounded" >
+              {user ? <Link to="login" onClick={logout}>Logout</Link>:<Link to="signup">Sign Up</Link>}</button></li>
           </ul>
         </div>
       
